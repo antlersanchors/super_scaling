@@ -25,10 +25,11 @@ class Mover {
   }
   
   void scaleUp() {
+    scaleValue = PVector.dist(location, center);
     pushMatrix();
     
-    scaleValue = location.dist();
-    println("This is mag = " + scaleValue);
+    
+    println("This is dist = " + scaleValue);
     
     popMatrix();
   }
