@@ -4,7 +4,8 @@ class Mover {
   PVector acceleration;
   float topspeed;
 
-  float scaleValue;
+  float distanceFromCenter;
+  float scaleFactor;
 
   PVector canvasCenter = new PVector(width/2, height/2);
 
@@ -25,16 +26,18 @@ class Mover {
     fill(175);
 
     ellipse(location.x, location.y, 16, 16);
+    
   }
 
   void scaleUp() {
 
-    pushMatrix();
     
-    scaleValue = location.dist(canvasCenter);
-    println("This is dist = " + scaleValue);
-
-    popMatrix();
+    distanceFromCenter = location.dist(canvasCenter);
+    println("This is dist = " + distanceFromCenter);
+    
+    scaleFactor = map(distanceFromCenter,0,450,0.6,8);
+    println("SCALE FACTOR: " + scaleFactor);
+    scale(scaleFactor);
   }
 
   void checkEdges() {
