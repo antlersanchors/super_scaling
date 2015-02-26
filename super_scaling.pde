@@ -3,16 +3,16 @@ ArrayList myMovers;
 // Declare Mover object
 Mover mover;
 
-PVector center = new PVector(width/2, height/2);
-PVector mouse = new PVector(mouseX, mouseY);
+PVector mouse;
+PVector center;
+PVector dir;
 
 void setup() {
-  size(200, 200);
+  size(800, 800);
   smooth();
   background(255);
 
   myMovers = new ArrayList();
-
 }
 
 void draw() {
@@ -24,13 +24,16 @@ void draw() {
     Mover m = (Mover) myMovers.get(i);
 
     // Call functions on Mover object.
-    mover.update();
-    mover.checkEdges();
-    mover.display();
+    m.update();
+    m.checkEdges();
+    m.display();
   }
 }
 
 void mousePressed() {
+
+  PVector center = new PVector(width/2, height/2);
+  PVector mouse = new PVector(mouseX, mouseY);
   // Make Mover object
   PVector dir = PVector.sub(mouse, center);
   println("Before normalize: dir = " + dir);
