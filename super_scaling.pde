@@ -13,7 +13,6 @@ void setup() {
 
   myMovers = new ArrayList();
 
-
 }
 
 void draw() {
