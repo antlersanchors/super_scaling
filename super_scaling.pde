@@ -1,6 +1,8 @@
 // Declare Mover object
 Mover mover;
+
 PVector center = new PVector(width/2,height/2);
+PVector mouse = new PVector(mouseX,mouseY);
 
 void setup() {
   size(200, 200);

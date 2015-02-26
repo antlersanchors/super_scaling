@@ -1,10 +1,7 @@
 class Mover {
 
-  // Our object has two PVectors: location and velocity
-  PVector location;
-  PVector velocity;
 
-  Mover() {
+  Mover(PVector location, PVector velocity) {
     location = new PVector(mouseX,mouseY);
     velocity = new PVector(-2,2);
   }
