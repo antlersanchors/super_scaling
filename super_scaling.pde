@@ -9,7 +9,7 @@ PVector center;
 
 void setup() {
   translate(width/2, height/2);
-  size(800, 800);
+  size(800, 800, P3D);
   smooth();
   background(255);
 

@@ -5,7 +5,7 @@ class Mover {
   float topspeed;
 
   float distanceFromCenter;
-  float scaleFactor;
+  int scaleFactor;
 
   PVector canvasCenter = new PVector(width/2, height/2);
 
@@ -25,19 +25,19 @@ class Mover {
     stroke(0);
     fill(175);
 
-    ellipse(location.x, location.y, 16, 16);
-    
+    distanceFromCenter = location.dist(canvasCenter);
+    println("This is dist = " + distanceFromCenter);
+
+    scaleFactor = int(map(distanceFromCenter, 0, 450, 0.6, 8));
+    println("SCALE FACTOR: " + scaleFactor);
+
+    rect(location.x, location.y, 16, 16);
   }
 
   void scaleUp() {
 
-    
-    distanceFromCenter = location.dist(canvasCenter);
-    println("This is dist = " + distanceFromCenter);
-    
-    scaleFactor = map(distanceFromCenter,0,450,0.6,8);
-    println("SCALE FACTOR: " + scaleFactor);
-    scale(scaleFactor);
+
+    //    scale(scaleFactor);
   }
 
   void checkEdges() {
