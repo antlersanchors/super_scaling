@@ -1,9 +1,8 @@
 class Mover {
 
-
   Mover(PVector location, PVector velocity) {
-    location = new PVector(mouseX,mouseY);
-    velocity = new PVector(-2,2);
+    
+//    velocity = new PVector(-2,2);
   }
 
   void update() {
