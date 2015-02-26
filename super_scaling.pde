@@ -16,6 +16,7 @@ void setup() {
 }
 
 void draw() {
+  
   noStroke();
   fill(255, 10);
   rect(0, 0, width, height);
@@ -27,6 +28,7 @@ void draw() {
     m.update();
     m.checkEdges();
     m.display();
+    m.scaleUp();
   }
 }
 

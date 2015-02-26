@@ -3,6 +3,7 @@ class Mover {
   PVector velocity;
   PVector acceleration;
   float topspeed;
+  float scaleValue;
 
   Mover(PVector startLoc, PVector startDir ) {
 
@@ -19,7 +20,17 @@ class Mover {
   void display() {
     stroke(0);
     fill(175);
+    
     ellipse(location.x, location.y, 16, 16);
+  }
+  
+  void scaleUp() {
+    pushMatrix();
+    
+    scaleValue = location.dist();
+    println("This is mag = " + scaleValue);
+    
+    popMatrix();
   }
 
   void checkEdges() {
