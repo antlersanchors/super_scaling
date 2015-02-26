@@ -25,9 +25,10 @@ class Mover {
   }
   
   void scaleUp() {
-    scaleValue = PVector.dist(location, center);
-    pushMatrix();
     
+    pushMatrix();
+    translate(width/2,height/2);
+    scaleValue = location.mag();
     
     println("This is dist = " + scaleValue);
     
@@ -37,15 +38,16 @@ class Mover {
   void checkEdges() {
 
     if (location.x > width) {
-      location.x = 0;
+      myMovers.remove(this);
+      
     } else if (location.x < 0) {
-      location.x = width;
+      myMovers.remove(this);
     }
 
     if (location.y > height) {
-      location.y = 0;
+      myMovers.remove(this);
     } else if (location.y < 0) {
-      location.y = height;
+      myMovers.remove(this);
     }
   }
 }
