@@ -36,8 +36,7 @@ class Mover {
 
   void scaleUp() {
 
-
-    //    scale(scaleFactor);
+  scale(scaleFactor);
   }
 
   void checkEdges() {

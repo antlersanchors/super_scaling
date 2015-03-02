@@ -9,7 +9,7 @@ PVector center;
 
 void setup() {
   translate(width/2, height/2);
-  size(800, 800, P3D);
+  size(800, 800);
   smooth();
   background(255);
 
@@ -21,7 +21,10 @@ void draw() {
   noStroke();
   fill(255, 10);
   rect(0, 0, width, height);
-
+  fill(0);
+  ellipseMode(CENTER);
+  ellipse(width/2,height/2,5,5);
+  
   for (int i = 0; i < myMovers.size (); i++) {
     Mover m = (Mover) myMovers.get(i);
 
