@@ -4,11 +4,10 @@ ArrayList myMovers;
 Mover mover;
 
 PVector mouse;
-PVector dir;
 PVector center;
+PVector dir;
 
 void setup() {
-  translate(width/2, height/2);
   size(800, 800);
   smooth();
   background(255);
@@ -17,14 +16,11 @@ void setup() {
 }
 
 void draw() {
-
+  
   noStroke();
   fill(255, 10);
   rect(0, 0, width, height);
-  fill(0);
-  ellipseMode(CENTER);
-  ellipse(width/2,height/2,5,5);
-  
+
   for (int i = 0; i < myMovers.size (); i++) {
     Mover m = (Mover) myMovers.get(i);
 
@@ -37,11 +33,10 @@ void draw() {
 }
 
 void mousePressed() {
+
   PVector center = new PVector(width/2, height/2);
-  println("The Center of Everything is: " + center);
-
   PVector mouse = new PVector(mouseX, mouseY);
-
+  // Make Mover object
   PVector dir = PVector.sub(mouse, center);
   println("Before normalize: dir = " + dir);
 

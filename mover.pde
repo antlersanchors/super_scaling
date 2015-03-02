@@ -3,54 +3,49 @@ class Mover {
   PVector velocity;
   PVector acceleration;
   float topspeed;
-
-  float distanceFromCenter;
-  int scaleFactor;
-
-  PVector canvasCenter = new PVector(width/2, height/2);
+  float scaleValue;
 
   Mover(PVector startLoc, PVector startDir ) {
 
     location = startLoc;
     velocity = startDir;
+
   }
 
   void update() {
     // Motion 101: Locations changes by velocity.
     location.add(velocity);
-    //    println("Location " + location);
   }
 
   void display() {
     stroke(0);
     fill(175);
-
-    distanceFromCenter = location.dist(canvasCenter);
-    println("This is dist = " + distanceFromCenter);
-
-    scaleFactor = int(map(distanceFromCenter, 0, 450, 0.6, 8));
-    println("SCALE FACTOR: " + scaleFactor);
-
-    rect(location.x, location.y, 16, 16);
+    
+    ellipse(location.x, location.y, 16, 16);
   }
-
+  
   void scaleUp() {
-
-  scale(scaleFactor);
+    scaleValue = PVector.dist(location, center);
+    pushMatrix();
+    
+    
+    println("This is dist = " + scaleValue);
+    
+    popMatrix();
   }
 
   void checkEdges() {
 
     if (location.x > width) {
-      myMovers.remove(this);
+      location.x = 0;
     } else if (location.x < 0) {
-      myMovers.remove(this);
+      location.x = width;
     }
 
     if (location.y > height) {
-      myMovers.remove(this);
+      location.y = 0;
     } else if (location.y < 0) {
-      myMovers.remove(this);
+      location.y = height;
     }
   }
 }
